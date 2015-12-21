@@ -28,33 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tb_battleTag = new System.Windows.Forms.TextBox();
+            this.diabloProfileView = new DiabloViewer.DiabloProfileView();
             this.SuspendLayout();
             // 
-            // tb_battleTag
+            // startPanel
             // 
-            this.tb_battleTag.Location = new System.Drawing.Point(12, 12);
-            this.tb_battleTag.Name = "tb_battleTag";
-            this.tb_battleTag.Size = new System.Drawing.Size(100, 20);
-            this.tb_battleTag.TabIndex = 0;
-            this.tb_battleTag.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tb_battleTag_KeyUp);
+            this.diabloProfileView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.diabloProfileView.Location = new System.Drawing.Point(0, 0);
+            this.diabloProfileView.Name = "startPanel";
+            this.diabloProfileView.Size = new System.Drawing.Size(513, 457);
+            this.diabloProfileView.TabIndex = 0;
+            this.diabloProfileView.ControlRemoved += new System.Windows.Forms.ControlEventHandler(this.startPanel_ControlRemoved);
             // 
             // MainFrame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(513, 457);
-            this.Controls.Add(this.tb_battleTag);
+            this.Controls.Add(this.diabloProfileView);
             this.Name = "MainFrame";
             this.Text = "Diablo Viewer";
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TextBox tb_battleTag;
+        private DiabloProfileView diabloProfileView;
+
     }
 }
 

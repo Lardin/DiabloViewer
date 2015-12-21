@@ -46,6 +46,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="APIKey.cs" />
+    <Compile Include="DiabloProfileView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DiabloProfileView.Designer.cs">
+      <DependentUpon>DiabloProfileView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Exceptions\BattleTagInvalidException.cs" />
     <Compile Include="Exceptions\BattleTagNotFoundException.cs" />
     <Compile Include="JSON Classes\DiabloProfile.cs" />
@@ -57,6 +63,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="DiabloProfileView.resx">
+      <DependentUpon>DiabloProfileView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainFrame.resx">
       <DependentUpon>MainFrame.cs</DependentUpon>
     </EmbeddedResource>
