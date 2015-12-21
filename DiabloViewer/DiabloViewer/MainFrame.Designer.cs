@@ -1,6 +1,6 @@
 ﻿namespace DiabloViewer
 {
-    partial class Form1
+    partial class MainFrame
     {
         /// <summary>
         /// Erforderliche Designervariable.
