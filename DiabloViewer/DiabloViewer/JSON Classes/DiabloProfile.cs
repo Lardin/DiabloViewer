@@ -12,5 +12,9 @@ namespace DiabloViewer
     {
         [DataMember(Name = "guildName")]
         public String GuildName { get; set; }
+        [DataMember(Name = "code")]
+        public String Code { get; set; }
+        [DataMember(Name = "reason")]
+        public String Reason { get; set; }
     }
 }

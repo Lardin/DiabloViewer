@@ -28,12 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.tb_battleTag = new System.Windows.Forms.TextBox();
+            this.SuspendLayout();
+            // 
+            // tb_battleTag
+            // 
+            this.tb_battleTag.Location = new System.Drawing.Point(12, 12);
+            this.tb_battleTag.Name = "tb_battleTag";
+            this.tb_battleTag.Size = new System.Drawing.Size(100, 20);
+            this.tb_battleTag.TabIndex = 0;
+            this.tb_battleTag.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tb_battleTag_KeyUp);
+            // 
+            // MainFrame
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Text = "Form1";
+            this.ClientSize = new System.Drawing.Size(513, 457);
+            this.Controls.Add(this.tb_battleTag);
+            this.Name = "MainFrame";
+            this.Text = "Diablo Viewer";
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
+
+        private System.Windows.Forms.TextBox tb_battleTag;
     }
 }
 
