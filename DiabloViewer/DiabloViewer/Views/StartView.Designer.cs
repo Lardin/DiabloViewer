@@ -1,13 +1,13 @@
-﻿namespace DiabloViewer
+﻿namespace DiabloViewer.Views
 {
-    partial class MainFrame
+    partial class StartView
     {
-        /// <summary>
+        /// <summary> 
         /// Erforderliche Designervariable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
+        /// <summary> 
         /// Verwendete Ressourcen bereinigen.
         /// </summary>
         /// <param name="disposing">True, wenn verwaltete Ressourcen gelöscht werden sollen; andernfalls False.</param>
@@ -20,44 +20,39 @@
             base.Dispose(disposing);
         }
 
-        #region Vom Windows Form-Designer generierter Code
+        #region Vom Komponenten-Designer generierter Code
 
-        /// <summary>
-        /// Erforderliche Methode für die Designerunterstützung.
+        /// <summary> 
+        /// Erforderliche Methode für die Designerunterstützung. 
         /// Der Inhalt der Methode darf nicht mit dem Code-Editor geändert werden.
         /// </summary>
         private void InitializeComponent()
         {
-            this.startView1 = new DiabloViewer.Views.StartView();
+            this.tb_battleTag = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // startView1
+            // tb_battleTag
             // 
-            this.startView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.startView1.Location = new System.Drawing.Point(0, 0);
-            this.startView1.Name = "startView1";
-            this.startView1.UpdateProfile += this.UpdateDiabloProfile;
-            this.startView1.Size = new System.Drawing.Size(513, 457);
-            this.startView1.TabIndex = 0;
+            this.tb_battleTag.Location = new System.Drawing.Point(3, 3);
+            this.tb_battleTag.Name = "tb_battleTag";
+            this.tb_battleTag.Size = new System.Drawing.Size(100, 20);
+            this.tb_battleTag.TabIndex = 1;
+            this.tb_battleTag.Text = "Svenson#2281";
+            this.tb_battleTag.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tb_battleTag_KeyUp);
             // 
-            // MainFrame
+            // StartView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(513, 457);
-            this.Controls.Add(this.startView1);
-            this.Name = "MainFrame";
-            this.Text = "Diablo Viewer";
+            this.Controls.Add(this.tb_battleTag);
+            this.Name = "StartView";
             this.ResumeLayout(false);
-            
+            this.PerformLayout();
+
         }
 
         #endregion
 
-        private Views.StartView startView1;
-       
-
-
+        private System.Windows.Forms.TextBox tb_battleTag;
     }
 }
-

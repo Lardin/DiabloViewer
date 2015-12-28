@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace DiabloViewer
 {
     [DataContract]
-    class DiabloProfile
+    public class DiabloProfile
     {
         [DataMember(Name = "guildName")]
         public String GuildName { get; set; }
