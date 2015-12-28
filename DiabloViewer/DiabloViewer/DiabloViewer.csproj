@@ -46,10 +46,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="APIKey.cs" />
-    <Compile Include="DiabloProfileView.cs">
+    <Compile Include="Views\DiabloProfileView.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="DiabloProfileView.Designer.cs">
+    <Compile Include="Views\DiabloProfileView.Designer.cs">
       <DependentUpon>DiabloProfileView.cs</DependentUpon>
     </Compile>
     <Compile Include="Exceptions\BattleTagInvalidException.cs" />
@@ -63,7 +63,13 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="DiabloProfileView.resx">
+    <Compile Include="Views\StartView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\StartView.Designer.cs">
+      <DependentUpon>StartView.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Views\DiabloProfileView.resx">
       <DependentUpon>DiabloProfileView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainFrame.resx">
@@ -78,6 +84,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Views\StartView.resx">
+      <DependentUpon>StartView.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

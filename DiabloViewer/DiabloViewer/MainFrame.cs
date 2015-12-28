@@ -1,4 +1,5 @@
 ﻿using DiabloViewer.Exceptions;
+using DiabloViewer.Views;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,17 +19,16 @@ namespace DiabloViewer
     {
         private String _battleTag;
         public String BattleTag { get; set; }
+        private DiabloProfile _diabloProfile;
+        public DiabloProfile DiabloProfile { get; set; }
         public MainFrame()
         {
             InitializeComponent();
         }
-
-        private void startPanel_ControlRemoved(object sender, ControlEventArgs e)
+        void UpdateDiabloProfile(object sender, StartView.DiabloProfileArgs e)
         {
-            if (e.Control == this.diabloProfileView)
-            {
-                this.BattleTag = this.diabloProfileView.BattleTag;
-            }
+            Console.WriteLine(e.DiabloProfile.GuildName);
+            this.Controls.Remove(this.startView1);
         }
     }
 }

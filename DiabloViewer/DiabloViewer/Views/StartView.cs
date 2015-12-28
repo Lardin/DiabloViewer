@@ -1,26 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Net;
+﻿using DiabloViewer.Exceptions;
+using System;
 using System.IO;
+using System.Net;
 using System.Runtime.Serialization.Json;
-using DiabloViewer.Exceptions;
+using System.Windows.Forms;
 
-namespace DiabloViewer
+namespace DiabloViewer.Views
 {
-    public partial class DiabloProfileView : UserControl
+    public partial class StartView : UserControl
     {
         private String _battleTag;
         public String BattleTag { get; set; }
-        private DiabloProfile diabloProfle;
-
-        public DiabloProfileView()
+        private DiabloProfile _diabloProfile;
+        public DiabloProfile DiabloProfile { get; set; }
+        public StartView()
         {
             InitializeComponent();
         }
@@ -41,10 +34,11 @@ namespace DiabloViewer
                     Stream input = ((HttpWebResponse)response).GetResponseStream();
                     DataContractJsonSerializer serializer = new DataContractJsonSerializer(typeof(DiabloProfile));
 
-                    diabloProfle = (DiabloProfile)serializer.ReadObject(input);
-                    if (diabloProfle.Code == "NOTFOUND")
+                    this.DiabloProfile = (DiabloProfile)serializer.ReadObject(input);
+                    if (this.DiabloProfile.Code == "NOTFOUND")
                         throw new BattleTagNotFoundException();
-                    Console.WriteLine(diabloProfle.GuildName);
+
+                    OnUpdateProfile(new DiabloProfileArgs(this.DiabloProfile));
                 }
                 catch (BattleTagInvalidException)
                 {
@@ -55,15 +49,31 @@ namespace DiabloViewer
                 catch (BattleTagNotFoundException)
                 {
                     String errorMessage = "Please check if your Battle-Tag is correct";
-                    String title = diabloProfle.Reason;
+                    String title = this.DiabloProfile.Reason;
                     MessageBox.Show(errorMessage, title, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 catch (Exception)
                 {
                     throw;
                 }
-
             }
+        }
+        public class DiabloProfileArgs : EventArgs
+        {
+            public DiabloProfileArgs(DiabloProfile profile)
+            {
+                DiabloProfile = profile;
+            }
+            public DiabloProfile DiabloProfile { get; set; }
+        }
+
+        public event EventHandler<DiabloProfileArgs> UpdateProfile;
+
+        protected virtual void OnUpdateProfile(DiabloProfileArgs e)
+        {
+            EventHandler<DiabloProfileArgs> ev = UpdateProfile;
+            if (ev != null)
+                ev(this, e);
         }
     }
 }
